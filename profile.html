@@ -4,23 +4,23 @@
     <title>Profile - Noah Site</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #dbeafe;
+            font-family: "Times New Roman", Times, serif;
+            background-color: #f8f6f0;
             color: #111;
             margin: 0;
         }
 
         nav {
-            background: white;
+            background: #fff;
             padding: 15px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #999;
         }
 
         nav a {
             text-decoration: none;
             margin-right: 15px;
             font-weight: bold;
-            color: #2563eb;
+            color: #222;
         }
 
         nav a:hover {
@@ -37,9 +37,40 @@
             background: white;
             padding: 15px;
             margin-bottom: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 1px solid #999;
         }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .card p {
+            margin: 8px 0;
+        }
+
+        /* Font stuff */
+
+        .formal {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .comic {
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+        }
+
+        .serious {
+            font-family: Georgia, serif;
+        }
+
+        .boring {
+            font-family: Arial, sans-serif;
+        }
+
+        .courier {
+            font-family: "Courier New", monospace;
+        }
+
+        
     </style>
 </head>
 
@@ -53,9 +84,9 @@
 
     <div class="container">
         <div class="card">
-            <h2>Who are you?</h2>
-            <p>The GOAT.</p>
-            <p>On a more serious note, my name is Noah Park.</p>
+            <h2 class="formal">Who are you?</h2>
+            <p class="serious">The GOAT.</p>
+            <p class="courier">On a more serious note, my name is Noah Park.</p>
         </div>
 
         <div class="card">
