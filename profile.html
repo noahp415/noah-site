@@ -57,6 +57,19 @@
             font-size: 17px;
         }
 
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 2px solid #111;
+            padding: 30px;
+            font-size: 24px;
+            z-index: 1000;
+        }
+
         /* Colors */
         .blue {
             color: #2563eb;
@@ -68,6 +81,15 @@
 
         .green {
             color: #16a34a;
+        }
+
+        /* Clickable word */
+        .clickable-word {
+            cursor: pointer;
+        }
+
+        .clickable-word:hover {
+            text-decoration: underline;
         }
 
         /* Font stuff */
@@ -139,8 +161,11 @@
 
         <div class="card">
             <h2>What is your favorite school subject?</h2>
-            <p class="serious">The default answer I would probably give is math. I'm in <span class="blue">Calculus BC</span> and I do math
-                competitions.</p>
+            <p class="serious">
+                The default answer I would probably give is math. I'm in
+                <span class="blue clickable-word" id="calculus">Calculus BC</span>
+                and I do math competitions.
+            </p>
             <p class="serious">Another subject I love is history. I was once a huge history buff and there was a time
                 when I knew well over a hundred Roman consuls.
                 Sadly, I haven't had time to study history as much as I used to. AP World History at school is really
@@ -156,10 +181,30 @@
         </div>
     </div>
 
+<div id="calculusBox" class="popup">
+    THE GREATEST CLASS EVER
+</div>
+
 <script>
     if (localStorage.getItem("darkMode") === "on") {
         document.body.classList.add("dark-mode");
     }
+
+    const calculus = document.getElementById("calculus");
+    const calculusBox = document.getElementById("calculusBox");
+
+    calculus.addEventListener("click", function (event) {
+        event.stopPropagation();
+        calculusBox.style.display = "block";
+    });
+
+    calculusBox.addEventListener("click", function (event) {
+        event.stopPropagation();
+    });
+
+    document.addEventListener("click", function () {
+        calculusBox.style.display = "none";
+    });
 </script>
 
 </body>
