@@ -149,11 +149,13 @@
             <h2>Who are you?</h2>
             <p class="serious">The GOAT.</p>
             <p class="courier">On a more serious note, my name is Noah Park.</p>
+            <p class="courier">I am <span id="age"></span> years old.</p>
         </div>
 
         <div class="card">
             <h2>What are your favorite football clubs?</h2>
-            <p>My favorite club is <span class="blue">Manchester City F.C.</span> My other favorite clubs include Rotherham United, AC Milan, and
+            <p>My favorite club is <span class="blue">Manchester City F.C.</span> My other favorite clubs include
+                Rotherham United, AC Milan, and
                 Real Betis.</p>
             <p>I also like Barcelona and Bayern, but I like those less than the clubs I listed before this message.</p>
         </div>
@@ -175,48 +177,64 @@
                 month, I might say PE.
             </p>
             <p class="courier">
-                I also like computer science. I mean, I did make the website you're on right now. But I like math and history more. 
+                I also like computer science. I mean, I did make the website you're on right now. But I like math and
+                history more.
             </p>
         </div>
     </div>
 
-<div id="calculusBox" class="popup">
-    THE GREATEST CLASS EVER
-</div>
+    <div id="calculusBox" class="popup">
+        THE GREATEST CLASS EVER
+    </div>
 
-<script>
-    if (localStorage.getItem("darkMode") === "on") {
-        document.body.classList.add("dark-mode");
-    }
-
-    const calculus = document.getElementById("calculus");
-    const calculusBox = document.getElementById("calculusBox");
-
-    calculus.addEventListener("click", function (event) {
-        event.stopPropagation();
-
-        const rect = calculus.getClientRects()[0];
-
-        calculusBox.style.display = "block";
-        calculusBox.style.left = rect.left + window.scrollX + "px";
-
-        const popupHeight = calculusBox.offsetHeight;
-
-        if (rect.top >= popupHeight + 10) {
-            calculusBox.style.top = rect.top + window.scrollY - popupHeight - 10 + "px";
-        } else {
-            calculusBox.style.top = rect.bottom + window.scrollY + 10 + "px";
+    <script>
+        if (localStorage.getItem("darkMode") === "on") {
+            document.body.classList.add("dark-mode");
         }
-    });
 
-    calculusBox.addEventListener("click", function (event) {
-        event.stopPropagation();
-    });
+        const birthday = new Date(2010, 9, 3);
+        const today = new Date();
 
-    document.addEventListener("click", function () {
-        calculusBox.style.display = "none";
-    });
-</script>
+        let age = today.getFullYear() - birthday.getFullYear();
+
+        if (
+            today.getMonth() < birthday.getMonth() ||
+            (today.getMonth() === birthday.getMonth() &&
+                today.getDate() < birthday.getDate())
+        ) {
+            age--;
+        }
+
+        document.getElementById("age").textContent = age;
+
+        const calculus = document.getElementById("calculus");
+        const calculusBox = document.getElementById("calculusBox");
+
+        calculus.addEventListener("click", function (event) {
+            event.stopPropagation();
+
+            const rect = calculus.getClientRects()[0];
+
+            calculusBox.style.display = "block";
+            calculusBox.style.left = rect.left + window.scrollX + "px";
+
+            const popupHeight = calculusBox.offsetHeight;
+
+            if (rect.top >= popupHeight + 10) {
+                calculusBox.style.top = rect.top + window.scrollY - popupHeight - 10 + "px";
+            } else {
+                calculusBox.style.top = rect.bottom + window.scrollY + 10 + "px";
+            }
+        });
+
+        calculusBox.addEventListener("click", function (event) {
+            event.stopPropagation();
+        });
+
+        document.addEventListener("click", function () {
+            calculusBox.style.display = "none";
+        });
+    </script>
 
 </body>
 
