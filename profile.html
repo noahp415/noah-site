@@ -77,6 +77,27 @@
         .montserrat {
             font-family: "Montserrat", sans-serif;
         }
+
+        /* Dark mode */
+        body.dark-mode {
+            background-color: #171717;
+            color: #eee;
+        }
+
+        body.dark-mode nav {
+            background-color: #222;
+            border-color: #555;
+        }
+
+        body.dark-mode nav a {
+            color: #eee;
+        }
+
+        body.dark-mode .card {
+            background-color: #222;
+            color: #eee;
+            border-color: #555;
+        }
     </style>
 </head>
 
@@ -90,7 +111,7 @@
 
     <div class="container">
         <div class="card">
-            <h2 class="formal">Who are you?</h2>
+            <h2>Who are you?</h2>
             <p class="serious">The GOAT.</p>
             <p class="courier">On a more serious note, my name is Noah Park.</p>
         </div>
@@ -120,6 +141,12 @@
             </p>
         </div>
     </div>
+
+<script>
+    if (localStorage.getItem("darkMode") === "on") {
+        document.body.classList.add("dark-mode");
+    }
+</script>
 
 </body>
 

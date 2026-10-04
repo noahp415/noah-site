@@ -72,6 +72,35 @@
             font-weight: bold;
         }
 
+        body.dark-mode {
+            background-color: #171717;
+            color: #eee;
+        }
+
+        body.dark-mode nav {
+            background-color: #222;
+            border-color: #555;
+        }
+
+        body.dark-mode nav a {
+            color: #eee;
+        }
+
+        body.dark-mode .meme {
+            background-color: #222;
+            color: #eee;
+            border-color: #555;
+        }
+
+        #darkModeButton {
+            margin-left: 20px;
+            padding: 5px 10px;
+            background: white;
+            border: 1px solid #777;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
         img {
             width: 100%;
             display: block;
@@ -95,6 +124,8 @@
         <a href="index.html">Home</a>
         <a href="cities.html">Cities</a>
         <a href="profile.html">Profile</a>
+
+        <button id="darkModeButton">Dark Mode</button>
     </nav>
 
     <div class="hero">
@@ -114,6 +145,28 @@
         </div>
 
     </div>
+
+<script>
+    const button = document.getElementById("darkModeButton");
+
+    if (localStorage.getItem("darkMode") === "on") {
+        document.body.classList.add("dark-mode");
+        button.textContent = "Light Mode";
+    }
+
+    button.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+            localStorage.setItem("darkMode", "on");
+            button.textContent = "Light Mode";
+        } else {
+            localStorage.setItem("darkMode", "off");
+            button.textContent = "Dark Mode";
+        }
+    });
+</script>
+
 
 </body>
 </html>

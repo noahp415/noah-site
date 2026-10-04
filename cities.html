@@ -107,6 +107,32 @@
             border-radius: 12px 0 0 12px;
         }
 
+        /* Dark mode */
+        body.dark-mode {
+            background-color: #171717;
+            color: #eee;
+        }
+
+        body.dark-mode nav {
+            background-color: #222;
+            border-color: #555;
+        }
+
+        body.dark-mode nav a {
+            color: #eee;
+        }
+
+        body.dark-mode .city,
+        body.dark-mode .sidebar {
+            background-color: #222;
+            color: #eee;
+            border-color: #555;
+        }
+
+        body.dark-mode .city p {
+            color: #eee;
+        }
+
         @media (max-width: 900px) {
             .layout {
                 flex-direction: column;
@@ -326,6 +352,11 @@
 
     </div>
 
+<script>
+if (localStorage.getItem("darkMode") === "on") {
+    document.body.classList.add("dark-mode");
+}
+</script>
 </body>
 
 </html>
