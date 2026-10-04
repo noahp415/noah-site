@@ -195,7 +195,7 @@
     calculus.addEventListener("click", function (event) {
         event.stopPropagation();
 
-        const rect = calculus.getBoundingClientRect();
+        const rect = calculus.getClientRects()[0];
 
         calculusBox.style.left = rect.left + window.scrollX + "px";
         calculusBox.style.top = rect.top + window.scrollY - calculusBox.offsetHeight - 6 + "px";
