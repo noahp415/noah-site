@@ -197,10 +197,16 @@
 
         const rect = calculus.getClientRects()[0];
 
-        calculusBox.style.left = rect.left + window.scrollX + "px";
-        calculusBox.style.top = rect.top + window.scrollY - calculusBox.offsetHeight - 6 + "px";
-
         calculusBox.style.display = "block";
+        calculusBox.style.left = rect.left + window.scrollX + "px";
+
+        const popupHeight = calculusBox.offsetHeight;
+
+        if (rect.top >= popupHeight + 10) {
+            calculusBox.style.top = rect.top + window.scrollY - popupHeight - 10 + "px";
+        } else {
+            calculusBox.style.top = rect.bottom + window.scrollY + 10 + "px";
+        }
     });
 
     calculusBox.addEventListener("click", function (event) {
