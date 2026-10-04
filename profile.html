@@ -59,14 +59,12 @@
 
         .popup {
             display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: absolute;
             background: white;
-            border: 2px solid #111;
-            padding: 30px;
-            font-size: 24px;
+            border: 1px solid #999;
+            padding: 5px 8px;
+            font-size: 14px;
+            white-space: nowrap;
             z-index: 1000;
         }
 
@@ -86,6 +84,7 @@
         /* Clickable word */
         .clickable-word {
             cursor: pointer;
+            position: relative;
         }
 
         .clickable-word:hover {
@@ -195,6 +194,12 @@
 
     calculus.addEventListener("click", function (event) {
         event.stopPropagation();
+
+        const rect = calculus.getBoundingClientRect();
+
+        calculusBox.style.left = rect.left + window.scrollX + "px";
+        calculusBox.style.top = rect.top + window.scrollY - calculusBox.offsetHeight - 6 + "px";
+
         calculusBox.style.display = "block";
     });
 
